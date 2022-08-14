@@ -29,6 +29,10 @@ defmodule YtFetcher.Router do
     end
   end
 
+  match "/favicon.ico" do
+    send_resp(conn, 404, "Not Found")
+  end
+
   match _ do
     send_resp(conn, 404, "Not Found")
   end

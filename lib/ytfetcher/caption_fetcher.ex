@@ -6,7 +6,6 @@ defmodule YtFetcher.CaptionFetcher do
     html
   end
 
-
   @spec get_caption_track_from_html(binary) :: CaptionTrack
   def get_caption_track_from_html(html) when is_binary(html) do
     case Regex.named_captures(~r/(?<j>(?=\[{"baseUrl":)(.*?)(?<=}\]))/, html) do
