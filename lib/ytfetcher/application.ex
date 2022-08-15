@@ -9,7 +9,7 @@ defmodule YtFetcher.Application do
         Plug.Cowboy,
         scheme: :http,
         plug: YtFetcher.Router,
-        options: [port: (System.get_env("PORT") || Application.get_all_env(:ytfetcher, :port)) |> String.to_integer()]
+        options: [port: (System.get_env("PORT") || Application.get_env(:ytfetcher, :port))]
       }
     ]
 

@@ -1,6 +1,7 @@
 defmodule YtFetcher.Router do
   use Plug.Router
   import YtFetcher.CaptionFetcher
+  import YtFetcher.CaptionFinder
 
   plug(Plug.Logger)
 
@@ -20,7 +21,8 @@ defmodule YtFetcher.Router do
         %CaptionTrack{ base_url: url } = get_caption_track_from_html(html)
         case get_captions_data(url) do
           {:ok, xml} ->
-            send_resp(conn, 200, xml)
+            transcript = get_captions(xml)
+            send_resp(conn, 200, Jason.encode!(transcript))
           {:error, status_code, reason} ->
             send_resp(conn, status_code, reason)
         end

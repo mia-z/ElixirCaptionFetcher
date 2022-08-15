@@ -3,13 +3,13 @@ defmodule YtFetcherTest.CaptionFetcher do
 
   test "parses extracted regex string into captions object with baseUrl" do
     #Arrange
-    html = File.read!("./ythtml.html")
+    html = File.read!("./test/artifacts/youtube.html")
 
     # Act
-    captions = YtFetcher.CaptionFetcher.get_caption_track_from_html(html)
+    captions_resource = YtFetcher.CaptionFetcher.get_caption_track_from_html(html)
 
     #Assert
-    assert is_binary(captions.base_url)
-    assert String.starts_with?(captions.base_url,"https://www.youtube.com/api/timedtext")
+    assert is_binary(captions_resource.base_url)
+    assert String.starts_with?(captions_resource.base_url,"https://www.youtube.com/api/timedtext")
   end
 end

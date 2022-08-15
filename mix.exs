@@ -25,7 +25,8 @@ defmodule YtFetcher.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:jason, "~> 1.3"},
       {:json, "~> 1.4.1"},
-      {:httpoison, "~> 1.8"}
+      {:httpoison, "~> 1.8"},
+      {:sweet_xml, "~> 0.7.1"}
     ]
   end
 end
