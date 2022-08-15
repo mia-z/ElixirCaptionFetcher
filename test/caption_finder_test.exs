@@ -9,6 +9,6 @@ defmodule YtFetcherTest.CaptionFinder do
     caption_rows = YtFetcher.CaptionFinder.get_captions(xml)
 
     #Assert
-    assert Enum.count(caption_rows.row) > 0
+    assert Enum.count(caption_rows.rows) > 0
   end
 end

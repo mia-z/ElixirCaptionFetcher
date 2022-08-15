@@ -21,8 +21,8 @@ defmodule YtFetcher.Router do
         %CaptionTrack{ base_url: url } = get_caption_track_from_html(html)
         case get_captions_data(url) do
           {:ok, xml} ->
-            transcript = get_captions(xml)
-            send_resp(conn, 200, Jason.encode!(transcript))
+            transcript = get_captions_json(xml)
+            send_resp(conn, 200, transcript)
           {:error, status_code, reason} ->
             send_resp(conn, status_code, reason)
         end
